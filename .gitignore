@@ -1,0 +1,38 @@
+# Arquivos e diretórios gerados pelo Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+
+# Arquivos de log
+*.log
+
+# Arquivos de backup gerados por editores ou ferramentas
+*.backup
+*.bak
+*.old
+*.tmp
+
+# Arquivos de chaves e credenciais
+*.pem
+*.key
+*.cert
+*.crt
+*.pub
+
+# Arquivos de configuração locais
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Arquivos de variáveis sensíveis
+terraform.tfvars
+*.auto.tfvars
+
+# Arquivos de checkpoint do Terraform
+.terraformrc
+terraform.rc
+
+# Arquivos e diretórios específicos do sistema
+.DS_Store
+Thumbs.db

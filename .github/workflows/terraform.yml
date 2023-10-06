@@ -1,0 +1,31 @@
+name: "Pipeline Terraform Infra AWS"
+
+on:
+  push:
+    branches:
+      - main
+      - staging
+      - develop
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    env:
+        TF_VAR_aws_region: us-east-1 # Substitua pelo valor da região desejada
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/staging'
+        run: terraform apply -auto-approve
